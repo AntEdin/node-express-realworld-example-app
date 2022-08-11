@@ -32,9 +32,11 @@ if (!isProduction) {
 
 if(isProduction){
   mongoose.connect(process.env.MONGODB_URI);
+  console.log("Using secret to connect")
 } else {
   mongoose.connect('mongodb://localhost/conduit');
   mongoose.set('debug', true);
+  console.log("Not using secret to connect")
 }
 
 require('./models/User');
